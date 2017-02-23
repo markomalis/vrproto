@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+ 	<head>
+		<meta charset="utf-8">
+		<title>360 Video</title>
+		<meta name="description" content="360 Video — A-Frame">
+		<script src="js/aframe.min.js"></script>
+		<script src="js/main.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/main.css">
+  	</head>
+  	<body>
+	    <a-scene data-scene>
+			<a-assets>
+				<video id="video1" src="videos/skate.mp4" loop crossorigin></video>
+				<video id="video2" src="videos/dive.mp4" loop crossorigin></video>
+				<video id="video3" src="videos/code.mp4" loop crossorigin></video>
+				<img id="wood" src="images/textures/wood.jpg">
+				<a-asset-item id="poke" src="models/model.dae"></a-asset-item>
+			</a-assets>
+
+			<a-box depth="1" height="2" width="5" position="-6 -4 -10" material="src: #wood" change-video="on: click; src: videos/skate.mp4; target: #video-sphere">
+				<a-text value="Lekker skaten!" color="white" align="center" font="mozillavr" position="0.3 0.5 1" scale="1.5 1.5 0"></a-text>
+			</a-box>
+			<a-box depth="1" height="2" width="5" position="0 -4 -10" material="src: #wood" change-video="on: click; src: videos/dive.mp4; target: #video-sphere">
+				<a-text value="Of liever duiken?!" color="white" align="center" font="mozillavr" position="0.2 0.5 1" scale="1.5 1.5 0"></a-text>
+			</a-box>
+			<a-box depth="1" height="2" width="5" position="6 -4 -10" material="src: #wood" change-video="on: click; src: videos/code.mp4; target: #video-sphere">
+				<a-text value="Nee gewoon coden!" color="white" align="center" font="mozillavr" position="-0.2 0.5 1" scale="1.5 1.5 0"></a-text>
+			</a-box>
+			<a-text value="He Jasper waar heb jij zin in?" position="0 4 -5" color="black" align="center"></a-text>
+			<a-entity collada-model="#poke" position="2.5 1.5 -4">
+				<a-animation attribute="rotation"
+               		dur="1000"
+               		fill="forwards"
+               		to="20 -60 0"
+               		repeat="0"></a-animation>
+			</a-entity>
+			<a-videosphere id="video-sphere" autoplay>
+				<!-- <a-animation attribute="rotation"
+               		dur="5000"
+               		fill="forwards"
+               		to="0 -90 0"
+               		repeat="0"></a-animation> -->
+			</a-videosphere>
+
+			<a-camera>
+	    		<a-cursor material="color: #6547b7"></a-cursor>
+	  		</a-camera>
+	    </a-scene>
+		<button id="play-button" type="button" name="button">play</button>
+		<button id="pause-button" type="button" name="button">pause</button>
+  	</body>
+  	<script>
+		var video = document.querySelector('#video1');
+		var play = document.querySelector('#play-button');
+		var pause = document.querySelector('#pause-button');
+
+		play.addEventListener('click', function(e) {
+			video.play();
+		});
+
+		pause.addEventListener('click', function(e) {
+			video.pause();
+		});
+  </script>
+</html>
