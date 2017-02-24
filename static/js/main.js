@@ -56,6 +56,7 @@ AFRAME.registerComponent('trigger-click', {
 
 		el.addEventListener('triggerdown', function(e) {
 			console.log(e);
+			e.target.emit('click');
 		})
 	}
 });
