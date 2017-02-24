@@ -44,6 +44,10 @@ AFRAME.registerComponent('launch-to-invisible', {
 			data.target.setAttribute('src', data.src);
 			data.target.setAttribute('material', 'src: ' + data.src);
 		});
+
+		el.addEventListener(triggerdown, function(e) {
+			console.log('bakbakabka: ', e);
+		});
 	}
 });
 
