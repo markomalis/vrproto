@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+ 	<head>
+		<meta charset="utf-8">
+		<title>360 Video</title>
+		<meta name="description" content="360 Video — A-Frame">
+		<script src="js/aframe.min.js"></script>
+		<script src="https://npmcdn.com/aframe-event-set-component@3.0.1"></script>
+		<script src="https://npmcdn.com/aframe-template-component@3.1.1"></script>
+		<script src="js/main.js"></script>
+		<!-- <link rel="stylesheet" type="text/css" href="css/main.css"> -->
+  	</head>
+  	<body>
+	    <a-scene data-scene>
+			<a-assets>
+				<a-asset-item id="girl" src="models/girl/model.dae"></a-asset-item>
+				<img id="wood" src="images/textures/wood.jpg">
+				<video id="space" src="videos/space.mp4" muted autoplay loop crossorigin></video>
+				<video id="twerk" src="videos/twerk.mp4" muted loop crossorigin></video>
+				<video id="fissa" src="videos/fissa.mp4" muted loop crossorigin></video>
+				<script id="select-box" type="text/html">
+					<a-entity class="link"
+						geometry="primitive: box; height: 2; width: 5; depth: 1"
+						material="src: #wood"
+						change-video="on: click; src: ${src}; target: #video-sphere; id: ${id}"
+						position="${x} -4 -10"
+
+						event-set__1="_event: mouseenter; scale: 1.2 1.2 1"
+						event-set__2="_event: mouseleave; scale: 1 1 1"></a-entity>
+				</script>
+				<a-mixin id="select-box__text" color="yellow" align="center" font="mozillavr" scale="1.5 1.5 0"></a-mixin>
+			</a-assets>
+
+			<a-entity template="src: #select-box" data-x="-6" data-id="#twerk" data-src="videos/twerk.mp4" text="value: He hoi; transparant: false; width: 4;">
+				<a-animation attribute="position"
+					begin="explode"
+					dur="700"
+               		fill="forwards"
+               		to="0 0 -9000"
+               		repeat="0"></a-animation>
+			</a-entity>
+			<a-entity template="src: #select-box" data-x="0" data-id="#fissa" data-src="videos/fissa.mp4">
+				<a-animation attribute="position"
+					begin="explode"
+					dur="700"
+               		fill="forwards"
+               		to="0 0 -9000"
+               		repeat="0"></a-animation>
+				<a-text mixin="select-box__text" value="Of liever duiken?!" position="3.2 0.5 1"></a-text>
+			</a-entity>
+			<a-text value="He Declead waar heb jij zin in?" position="0 4 -5" color="#EDDD3E" align="center" font="mozillavr" opacity="0">
+				<a-animation attribute="opacity"
+               		dur="1000"
+					delay="1000"
+               		fill="forwards"
+					easing="ease-in"
+               		to="1"
+               		repeat="0"></a-animation>
+			</a-text>
+			<a-entity collada-model="#girl" position="2 1.5 -3">
+				<a-animation attribute="rotation"
+               		dur="1000"
+					delay="1000"
+               		fill="forwards"
+               		to="20 -60 0"
+               		repeat="0"></a-animation>
+			</a-entity>
+			<a-videosphere id="video-sphere" src='#space' autoplay></a-videosphere>
+
+			<a-camera position="0 0 200">
+				<a-animation attribute="position"
+               		dur="700"
+					delay="300"
+               		fill="forwards"
+               		to="0 1.6 0"
+               		repeat="0"></a-animation>
+	    		<a-cursor material="color: #EDDD3E"></a-cursor>
+	  		</a-camera>
+	    </a-scene>
+  	</body>
+  </script>
+</html>
