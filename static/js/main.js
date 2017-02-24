@@ -56,6 +56,10 @@ AFRAME.registerComponent('trigger-click', {
 
 		el.addEventListener('triggerdown', function(e) {
 			console.log(e);
+
+
+			console.log(e.target);
+			console.log(e.currentTarget);
 			e.target.emit('click');
 		})
 	}
