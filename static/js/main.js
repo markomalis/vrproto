@@ -48,7 +48,7 @@ AFRAME.registerComponent('launch-to-invisible', {
 });
 
 
-AFRAME.registerComponent('launch-to-invisible', {
+AFRAME.registerComponent('trigger-click', {
 	schema:{},
 	init: function() {
 		var data = this.data;
