@@ -46,3 +46,16 @@ AFRAME.registerComponent('launch-to-invisible', {
 		});
 	}
 });
+
+
+AFRAME.registerComponent('launch-to-invisible', {
+	schema:{},
+	init: function() {
+		var data = this.data;
+		var el = this.el;
+
+		el.addEventListener('triggerdown', function(e) {
+			console.log(e);
+		})
+	}
+});
