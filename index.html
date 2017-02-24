@@ -7,6 +7,7 @@
 		<script src="js/aframe.min.js"></script>
 		<script src="https://npmcdn.com/aframe-event-set-component@3.0.1"></script>
 		<script src="https://npmcdn.com/aframe-template-component@3.1.1"></script>
+		<script src="https://rawgit.com/bryik/aframe-vive-cursor-component/master/dist/aframe-vive-cursor-component.min.js"></script>
 		<script src="js/main.js"></script>
 		<!-- <link rel="stylesheet" type="text/css" href="css/main.css"> -->
   	</head>
@@ -77,8 +78,8 @@
 			</a-entity>
 			<a-videosphere id="video-sphere" src='#space' autoplay></a-videosphere>
 
-			<a-entity vive-controls="hand: left" trigger-click></a-entity>
-			<a-entity vive-controls="hand: right" trigger-click></a-entity>
+			<a-entity vive-controls="hand: left" vive-cursor trigger-click></a-entity>
+			<a-entity vive-controls="hand: right" vive-cursor trigger-click></a-entity>
 
 			<a-camera position="0 0 200">
 				<a-animation attribute="position"
@@ -87,7 +88,7 @@
                		fill="forwards"
                		to="0 1.6 0"
                		repeat="0"></a-animation>
-	    		<a-cursor id="yolo" material="color: #EDDD3E"></a-cursor>
+	    		<a-cursor material="color: #EDDD3E"></a-cursor>
 	  		</a-camera>
 	    </a-scene>
   	</body>

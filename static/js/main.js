@@ -64,8 +64,6 @@ AFRAME.registerComponent('trigger-click', {
 
 			console.log(e.target);
 			console.log(e.currentTarget);
-			document.querySelector("#yolo").emit('click');
-			// e.target.emit('click');
 		})
 	}
 });
